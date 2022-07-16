@@ -11,8 +11,10 @@ public class School {
 
     private List<Teacher> teachers;
     private List<Student> students;
-    private int totalMoneyEarned;
-    private int totalMoneySpent;
+    public static int totalMoneyEarned;
+    public static int totalMoneySpent;
+
+    //with statics we can access the method
 
     /**
      * new school object is created.
@@ -35,35 +37,61 @@ public class School {
         return teachers;
     }
 
-//    /**
-//     *
-//     * @param teachers
-//     */
-//    public void addTeachers(Teacher teachers) {
-//        this.teachers = teachers;
-//    }
+    /**
+     * Adds a teacher to the school
+     * @param teacher  the teacher to be added.
+     */
+    public void addTeacher(Teacher teacher) {
+        teachers.add(teacher);
 
+    }
+
+    /**
+     *
+     * @return the list of students in the school
+     */
     public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    /**
+     * adds student to the school
+     * @param student the student to be added.
+     */
+    public void addStudents(Student student) {
+        students.add(student);
     }
 
+    /**
+     *
+     * @return the total money earned by the school
+     */
     public int getTotalMoneyEarned() {
         return totalMoneyEarned;
     }
 
-    public void setTotalMoneyEarned(int totalMoneyEarned) {
-        this.totalMoneyEarned = totalMoneyEarned;
+    /**
+     * adds the total money earned by the school.
+     * @param MoneyEarned money that is supposed to be added.
+     */
+    public static void updateTotalMoneyEarned(int MoneyEarned) {
+        totalMoneyEarned += MoneyEarned;
     }
 
+    /**
+     *
+     * @return the total money spent by the school
+     */
     public int getTotalMoneySpent() {
         return totalMoneySpent;
     }
 
-    public void setTotalMoneySpent(int totalMoneySpent) {
-        this.totalMoneySpent = totalMoneySpent;
+    /**
+     * update the money that is spent by the school which is
+     * the salary given by the school to its teachers.
+     * @param moneySpent the money spent by school
+     */
+    public static void updateTotalMoneySpent(int moneySpent) {
+        totalMoneyEarned -= moneySpent;
     }
 }

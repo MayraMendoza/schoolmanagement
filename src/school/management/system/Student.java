@@ -54,9 +54,13 @@ public class Student {
      * The school is going to receive the funds.
      * @param fees the fees that the students paid
      */
-    public void updateFeesPaid(int fees){
+    public void payFees(int fees){
         //feesPaid = feesPaid + fees;
         feesPaid += fees;
+        // to update a variable in another class you will have to declare it as static.
+        School.updateTotalMoneyEarned(getFeesPaid());
+
+
 
 
     }
@@ -100,4 +104,20 @@ public class Student {
     public int getFeesTotal() {
         return feesTotal;
     }
+
+    /**
+     *
+     * @return the remaining fees
+     */
+    public int getRemainingFess(){
+        return feesTotal - feesPaid;
+    }
+
+    //control O -
+    @Override
+    public String toString() {
+        return "Student's name: "+ name +" Total fees paid so far $"+ feesPaid;
+    }
+
+
 }
